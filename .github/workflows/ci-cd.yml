@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: isoft-ufro/banduairlines-frontend
 
 jobs:
   ci:
@@ -69,7 +69,6 @@ jobs:
           script: |
             cd /home/integracion/banduairlines-infra
             
-            # Despliega según la rama (frontend o frontend-develop)
             if [ "${{ github.ref_name }}" = "main" ]; then
               docker compose pull frontend
               docker compose up -d frontend
